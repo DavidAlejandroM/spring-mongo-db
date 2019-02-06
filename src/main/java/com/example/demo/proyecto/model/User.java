@@ -2,44 +2,54 @@ package com.example.demo.proyecto.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.bson.types.ObjectId;
 
 @Document
 public class User {
 
     @Id
-    private Integer id;
+    private ObjectId _id;
     private String name;
-    private String telefono;
+    private String telephone;
 
 
-    public User(Integer id, String name, String telefono) {
-        this.id = id;
+    public User(){
+
+    }
+
+
+    public User(ObjectId _id, String name, String telephone) {
+        this._id = _id;
         this.name = name;
-        this.telefono = telefono;
+        this.telephone = telephone;
     }
 
-    public Integer getId() {
-        return id;
+
+    public String get_id() { return _id.toHexString(); }
+
+
+    public void setId(ObjectId   id) {
+        this._id = id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getTelefono() {
-        return telefono;
+
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
 }
