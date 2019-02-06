@@ -1,6 +1,5 @@
 package com.example.demo.proyecto.model;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,23 +7,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private String _id;
+    private Integer id;
     private String name;
-    private String telephone;
+    private String telefono;
 
 
-    public User(String _id, String name, String telephone) {
-        this._id = _id;
+    public User(Integer id, String name, String telefono) {
+        this.id = id;
         this.name = name;
-        this.telephone = telephone;
+        this.telefono = telefono;
     }
 
-    public String get_Id() {
-        return this._id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setId(String _id) {
-        this._id = _id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -36,11 +35,11 @@ public class User {
     }
 
     public String getTelefono() {
-        return telephone;
+        return telefono;
     }
 
-    public void setTelefono(String telephone) {
-        this.telephone = telephone;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
 }
