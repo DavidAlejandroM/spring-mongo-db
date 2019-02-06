@@ -8,22 +8,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private ObjectId _id;
+    private String _id;
     private String name;
     private String telephone;
 
 
-    public User(ObjectId _id, String name, String telephone) {
+    public User(String _id, String name, String telephone) {
         this._id = _id;
         this.name = name;
         this.telephone = telephone;
     }
 
     public String get_Id() {
-        return this._id.toHexString();
+        return this._id;
     }
 
-    public void setId(ObjectId :_id) {
+    public void setId(String _id) {
         this._id = _id;
     }
 
