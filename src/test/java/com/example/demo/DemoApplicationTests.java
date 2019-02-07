@@ -70,6 +70,21 @@ public class DemoApplicationTests {
 	}
 
 	@Test(timeout=3000)
+	public void testPostUserNameNull(){
+		RestTemplate restTemplate = new RestTemplate();
+
+		User user = new User();
+		user.setId(new ObjectId("5c5c362673697c2d2053c2fc"));
+		user.setName("Pepito");
+		user.setTelephone("8544977");
+
+		ResponseEntity<User> responseEntity = restTemplate.postForEntity(URL_API+"/", user, User.class);
+		Assert.notNull(responseEntity.getBody(),"Body is no null");
+		Assert.notNull(responseEntity.getBody().getName(),"Name not null");
+		Assert.isTrue(responseEntity.getStatusCode() == HttpStatus.OK,"Status Code");
+	}
+
+	@Test(timeout=3000)
 	public void testPutUser(){
 		RestTemplate restTemplate = new RestTemplate();
 		String ID = "5c5c362673697c2d2053c2fc";
